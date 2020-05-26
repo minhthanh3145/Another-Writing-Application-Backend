@@ -3,7 +3,7 @@ var cors = require("cors");
 var app = express();
 
 app.use(cors());
-const port = 3000;
+const port = 5000;
 const Mercury = require("@postlight/mercury-parser");
 
 app.get("/", (req, res) => res.send("Hello World!"));
@@ -15,6 +15,6 @@ app.get("/get_content", async (req, res) => {
   res.json(result);
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
